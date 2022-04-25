@@ -1,15 +1,24 @@
-$button-diameter: 80px;
+$max-button-diameter: 80px;
+$button-diameter: 10vh;
+$button-diameter-mobile: 15vw;
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: $max-button-diameter;
+  max-height: $max-button-diameter;
   width: $button-diameter;
   height: $button-diameter;
   border-radius: 50%;
   color: #FFF;
   font-size: 2.25em;
   margin: 0 10px;
+
+  @media screen and (max-width: 420px) {
+    width: $button-diameter-mobile;
+    height: $button-diameter-mobile;
+  }
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);

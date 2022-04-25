@@ -5,7 +5,7 @@ import KeyboardButton from "../keyboard-button/keyboard-button";
 import styles from './calculator.module.scss';
 
 const Calculator: FC = () => {
-  const keys = ["C", "&radic;", "%", "/", "7", "8", "9", "&times;", "4", "5", "6", "-", "1", "2", "3", "+", "00", "0", ",", "="];
+  const keys = ["C", "\u221A", "%", "/", "7", "8", "9", "\u00D7", "4", "5", "6", "-", "1", "2", "3", "+", "00", "0", ",", "="];
   const onButtonClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -15,8 +15,8 @@ const Calculator: FC = () => {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.outputSection}`}>
-        <div className={`${styles.output}`}></div>
-        <div className={`${styles.result}`}></div>
+        <div className={`${styles.output}`}>123+123</div>
+        <div className={`${styles.result}`}>246</div>
       </div>
       <div className={`${styles.keyboard}`}>
         { keys.map((el, index) => <KeyboardButton value={el} onClick={onButtonClick} key={index}/>) }
