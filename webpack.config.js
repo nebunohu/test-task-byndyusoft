@@ -14,7 +14,8 @@ module.exports = {
       directory: path.join(__dirname, 'dist')
     },
     compress: true,
-    port: 3000
+    port: 3000,
+    hot: true
   },
   devtool: 'source-map',
   resolve: {
@@ -35,10 +36,23 @@ module.exports = {
         test: /\.s[sc]ss$/i,
         use: [
           { loader: "style-loader" },
-          { loader: "css-modules-typescript-loader" },
-          { loader: "css-loader", options: { modules: true } },
+          { loader: "css-modules-typescript-loader",
+            options: {
+              mode: process.env.CI ? 'verify' : 'emit'
+            } 
+          },
+          { loader: "css-loader", options: { modules: {
+            mode: "local",
+            auto: true,
+            exportGlobals: true,
+            localIdentName: "[name]__[local]--[hash:base64:5]",
+          } } },
           { loader: "sass-loader" }
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
       }
     ]
   },

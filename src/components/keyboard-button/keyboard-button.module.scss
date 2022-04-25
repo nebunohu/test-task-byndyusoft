@@ -1,0 +1,18 @@
+$button-diameter: 80px;
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $button-diameter;
+  height: $button-diameter;
+  border-radius: 50%;
+  color: #FFF;
+  font-size: 2.25em;
+  margin: 0 10px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: default;
+  }
+}
