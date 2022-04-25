@@ -1,0 +1,15 @@
+html {
+  background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%), #FFFFFF;
+}
+
+.calcOverlay {
+  width: 616px;
+  height: 876px;
+
+  background: #FFFFFF;
+  opacity: 0.2;
+  backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 18px;
+}
