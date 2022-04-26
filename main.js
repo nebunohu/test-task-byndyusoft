@@ -36357,6 +36357,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions/calc-actions */ "./src/redux/actions/calc-actions.ts");
 /* harmony import */ var _keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../keyboard-button/keyboard-button */ "./src/components/keyboard-button/keyboard-button.tsx");
 /* harmony import */ var _keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./keyboard.module.scss */ "./src/components/keyboard/keyboard.module.scss");
+/* harmony import */ var _utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/to-postfix */ "./src/utils/to-postfix.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -36373,22 +36374,56 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 
+
 var Keyboard = function () {
     var keys = ["C", "\u221A", "%", "/", "7", "8", "9", "\u00D7", "4", "5", "6", "-", "1", "2", "3", "+", "00", "0", ",", "="];
     var input = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (store) { return store.calc; }).input;
     var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+    var calculate = function (input) {
+        var postfixStr = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__.toPostfix)(input);
+        var stack = [];
+        postfixStr.forEach(function (el) {
+            if (!isNaN(+el)) {
+                stack.push(el);
+            }
+            else {
+                var temp = void 0;
+                switch (el) {
+                    case "+":
+                        temp = +stack[stack.length - 2] + +stack[stack.length - 1];
+                        break;
+                    case "-":
+                        temp = +stack[stack.length - 2] - +stack[stack.length - 1];
+                        break;
+                    case "\u00D7":
+                        temp = +stack[stack.length - 2] * +stack[stack.length - 1];
+                        break;
+                    case "/":
+                        temp = +stack[stack.length - 2] / +stack[stack.length - 1];
+                        break;
+                }
+                stack.splice(stack.length - 2, 2);
+                stack.push(temp);
+            }
+        });
+        return stack[0];
+    };
     var onButtonClick = function (e) {
         var target = e.target;
-        if (target.textContent === "C")
-            dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
-        else
-            dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)(input + target.textContent));
-    };
-    var onEqualButtonClick = function (e) {
+        switch (target.textContent) {
+            case "C":
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
+                break;
+            case "=":
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateResult)(calculate(input)));
+                break;
+            default:
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)(input + target.textContent));
+        }
     };
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", __assign({ className: "".concat(_keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].keyboard) }, { children: keys.map(function (el, index) {
             if (el === "=")
-                return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__["default"], { value: el, onClick: onEqualButtonClick, equal: true }, index);
+                return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__["default"], { value: el, onClick: onButtonClick, equal: true }, index);
             return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__["default"], { value: el, onClick: onButtonClick }, index);
         }) })));
 };
@@ -36432,6 +36467,39 @@ var OutputSection = function (_a) {
 
 /***/ }),
 
+/***/ "./src/consts/index.ts":
+/*!*****************************!*\
+  !*** ./src/consts/index.ts ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "operators": () => (/* binding */ operators)
+/* harmony export */ });
+var operators = [
+    {
+        value: "+",
+        priority: 1
+    },
+    {
+        value: "-",
+        priority: 1
+    },
+    {
+        value: "\u00D7",
+        priority: 2,
+    },
+    {
+        value: "/",
+        priority: 2
+    }
+];
+
+
+/***/ }),
+
 /***/ "./src/hooks/index.ts":
 /*!****************************!*\
   !*** ./src/hooks/index.ts ***!
@@ -36464,13 +36532,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CLEAR_CALC": () => (/* binding */ CLEAR_CALC),
 /* harmony export */   "SAVE_FORM": () => (/* binding */ SAVE_FORM),
 /* harmony export */   "UPDATE_INPUT": () => (/* binding */ UPDATE_INPUT),
+/* harmony export */   "UPDATE_RESULT": () => (/* binding */ UPDATE_RESULT),
 /* harmony export */   "clearCalc": () => (/* binding */ clearCalc),
 /* harmony export */   "saveForm": () => (/* binding */ saveForm),
-/* harmony export */   "updateInput": () => (/* binding */ updateInput)
+/* harmony export */   "updateInput": () => (/* binding */ updateInput),
+/* harmony export */   "updateResult": () => (/* binding */ updateResult)
 /* harmony export */ });
 var SAVE_FORM = "SAVE_FORM";
 var CLEAR_CALC = "CLEAR_CALC";
 var UPDATE_INPUT = "UPDATE_INPUT";
+var UPDATE_RESULT = "UPDATE_RESULT";
 var saveForm = function (form) {
     return {
         type: SAVE_FORM,
@@ -36485,6 +36556,12 @@ var clearCalc = function () {
 var updateInput = function (value) {
     return {
         type: UPDATE_INPUT,
+        value: value
+    };
+};
+var updateResult = function (value) {
+    return {
+        type: UPDATE_RESULT,
         value: value
     };
 };
@@ -36532,12 +36609,67 @@ var calcReducer = function (state, action) {
         case _actions_calc_actions__WEBPACK_IMPORTED_MODULE_0__.UPDATE_INPUT: {
             return __assign(__assign({}, state), { input: action.value });
         }
+        case _actions_calc_actions__WEBPACK_IMPORTED_MODULE_0__.UPDATE_RESULT: {
+            return __assign(__assign({}, state), { result: action.value });
+        }
         default: return state;
     }
 };
 var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
     calc: calcReducer
 });
+
+
+/***/ }),
+
+/***/ "./src/utils/to-postfix.ts":
+/*!*********************************!*\
+  !*** ./src/utils/to-postfix.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toPostfix": () => (/* binding */ toPostfix)
+/* harmony export */ });
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts */ "./src/consts/index.ts");
+
+var toPostfix = function (input) {
+    var stack = [], numAsStr = '';
+    var postfixStr = [], infixStr = input.split('');
+    infixStr.forEach(function (currentToken) {
+        if (!isNaN(+currentToken)) {
+            numAsStr += currentToken;
+        }
+        else if (numAsStr !== '') {
+            postfixStr.push(numAsStr);
+            numAsStr = '';
+            var currentTokenWithPriority_1 = _consts__WEBPACK_IMPORTED_MODULE_0__.operators.find(function (el) { return el.value === currentToken; });
+            if (currentTokenWithPriority_1) {
+                if (stack.length) {
+                    var stackCopy = stack.reverse().filter(function (el) {
+                        if (el.priority > currentTokenWithPriority_1.priority) {
+                            postfixStr.push(el.value);
+                        }
+                        else
+                            return el;
+                    });
+                    stack = stackCopy;
+                }
+                stack.push(currentTokenWithPriority_1);
+            }
+            else
+                return 'Error';
+        }
+    });
+    if (numAsStr)
+        postfixStr.push(numAsStr);
+    if (stack.length) {
+        stack.reverse().forEach(function (el) { return postfixStr.push(el.value); });
+    }
+    return postfixStr;
+};
 
 
 /***/ }),
