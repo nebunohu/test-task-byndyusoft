@@ -6,7 +6,6 @@ export const toPostfix = (input: string): Array<string> => {
   const 
     postfixStr = [],
     infixStr = input.split('');
-    
 
   infixStr.forEach(currentToken => {
     if( !isNaN(+currentToken) ) {
@@ -18,13 +17,10 @@ export const toPostfix = (input: string): Array<string> => {
       if (currentTokenWithPriority) {
         if (stack.length) {
           
-          const stackCopy = stack.reverse().filter(el => {
-            if (el.priority > currentTokenWithPriority.priority) {
-              postfixStr.push(el.value);
-              
-            } else return el;
-          });
-          stack = stackCopy as Array<{value: string, priority: number}>;
+          if (stack[stack.length-1].priority >= currentTokenWithPriority.priority) {
+            postfixStr.push(stack[stack.length-1].value);
+            stack.pop();
+          }
         } 
         stack.push(currentTokenWithPriority);
       } else return 'Error';
