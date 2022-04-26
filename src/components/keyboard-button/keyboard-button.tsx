@@ -5,12 +5,14 @@ import styles from './keyboard-button.module.scss';
 
 type TKeyboardButtonProps = {
   value: string;
-  onClick?: (event: MouseEvent<HTMLDivElement>) => void//MouseEventHandler<HTMLDivElement>;
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+  equal?: boolean;
 }
 
-const KeyboardButton:FC<TKeyboardButtonProps> = ({ value, onClick }) => {
+const KeyboardButton:FC<TKeyboardButtonProps> = ({ value, onClick, equal }) => {
+  const className = `${styles.wrapper} ${equal ? styles.equal : ''}`;
   return (
-    <div className={`${styles.wrapper}`} onClick={onClick}>
+    <div className={className} onClick={onClick}>
       {value}
     </div>
   );

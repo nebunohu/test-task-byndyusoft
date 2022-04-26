@@ -8,14 +8,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  //width: 616px;
   height: 876px;
-
   background: rgba(255, 255, 255, 0.2);
-  //opacity: 0.2;
-  //backdrop-filter: blur(4px);
-  /* Note: backdrop-filter has minimal browser support */
-
   border-radius: 18px;
 
   @media screen and (max-width: 420px) {

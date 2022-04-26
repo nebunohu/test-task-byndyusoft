@@ -1,0 +1,27 @@
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+  height: 26%;
+}
+
+.output {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  max-height: 117px;
+  font-size: 1.5em;
+  overflow: hidden;
+}
+
+.result {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  height: 76px;
+  font-size: 3.5em;
+  line-height: 80px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
