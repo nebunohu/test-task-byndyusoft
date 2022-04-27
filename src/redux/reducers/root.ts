@@ -5,11 +5,13 @@ import { combineReducers } from "redux";
 export type TCalcState = {
   result: string;
   input: string;
+  isCalculated: boolean;
 };
 
 const calcInitialState: TCalcState = {
   result: '',
   input: '',
+  isCalculated: false,
 };
 
 export const calcReducer = (state = calcInitialState, action: TCalcActions): TCalcState => {
@@ -18,7 +20,8 @@ export const calcReducer = (state = calcInitialState, action: TCalcActions): TCa
     return {
       ...state,
       input: '',
-      result: ''
+      result: '',
+      isCalculated: false,
     };
   }
   case UPDATE_INPUT: {
@@ -30,7 +33,8 @@ export const calcReducer = (state = calcInitialState, action: TCalcActions): TCa
   case UPDATE_RESULT: {
     return {
       ...state,
-      result: action.value
+      result: action.value,
+      isCalculated: true,
     };
   }
   default: return state;

@@ -1,5 +1,5 @@
 $max-button-diameter: 80px;
-$button-diameter: 10vh;
+$button-diameter: 20%;
 $button-diameter-mobile: 15vw;
 
 .wrapper {
@@ -20,6 +20,7 @@ $button-diameter-mobile: 15vw;
     height: $button-diameter-mobile;
   }
 
+  &:active,
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     cursor: default;
@@ -30,6 +31,7 @@ $button-diameter-mobile: 15vw;
   color: rgba(43, 88, 154, 1);
   background-color: #FFF;
 
+  &:active,
   &:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
