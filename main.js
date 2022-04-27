@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html {\n  background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%), #FFFFFF;\n  font-family: \"Geometria\";\n  color: #FFF; }\n\n.app-modules__calcOverlay--UsPi_ {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 876px;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 18px; }\n  @media screen and (max-width: 420px) {\n    .app-modules__calcOverlay--UsPi_ {\n      height: 100vh;\n      width: 100vw; } }\n", "",{"version":3,"sources":["webpack://./src/components/app/app.modules.scss"],"names":[],"mappings":"AAAA;EACE,8EAA8E;EAC9E,wBAAwB;EACxB,WAAW,EAAA;;AAGb;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB,EAAA;EAEnB;IARF;MASI,aAAa;MACb,YAAY,EAAA,EAEf","sourcesContent":["html {\r\n  background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%), #FFFFFF;\r\n  font-family: \"Geometria\";\r\n  color: #FFF;\r\n}\r\n\r\n.calcOverlay {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 876px;\r\n  background: rgba(255, 255, 255, 0.2);\r\n  border-radius: 18px;\r\n\r\n  @media screen and (max-width: 420px) {\r\n    height: 100vh;\r\n    width: 100vw;\r\n  }\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html {\n  background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%), #FFFFFF;\n  font-family: \"Geometria\";\n  color: #FFF; }\n\n.app-modules__calcOverlay--UsPi_ {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 876px;\n  min-width: 616px;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 18px; }\n  @media screen and (max-width: 420px) {\n    .app-modules__calcOverlay--UsPi_ {\n      position: static;\n      top: 0;\n      left: 0;\n      transform: translate(0, 0);\n      height: 100vh;\n      min-height: 0;\n      width: 100vw;\n      min-width: 0; } }\n", "",{"version":3,"sources":["webpack://./src/components/app/app.modules.scss"],"names":[],"mappings":"AAAA;EACE,8EAA8E;EAC9E,wBAAwB;EACxB,WAAW,EAAA;;AAKb;EACE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,oCAAoC;EACpC,mBAAmB,EAAA;EAEnB;IAbF;MAcI,gBAAgB;MAChB,MAAK;MACL,OAAO;MACP,0BAA0B;MAC1B,aAAa;MACb,aAAa;MACb,YAAY;MACZ,YAAY,EAAA,EAEf","sourcesContent":["html {\r\n  background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%), #FFFFFF;\r\n  font-family: \"Geometria\";\r\n  color: #FFF;\r\n}\r\n\r\n\r\n\r\n.calcOverlay {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 876px;\r\n  min-width: 616px;\r\n  background: rgba(255, 255, 255, 0.2);\r\n  border-radius: 18px;\r\n\r\n  @media screen and (max-width: 420px) {\r\n    position: static;\r\n    top:0;\r\n    left: 0;\r\n    transform: translate(0, 0);\r\n    height: 100vh;\r\n    min-height: 0;\r\n    width: 100vw;\r\n    min-width: 0;\r\n  }\r\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"calcOverlay": "app-modules__calcOverlay--UsPi_"
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".keyboard-button-module__wrapper--LoMrW {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 80px;\n  max-height: 80px;\n  width: 10vh;\n  height: 10vh;\n  border-radius: 50%;\n  color: #FFF;\n  font-size: 2.25em;\n  margin: 0 10px; }\n  @media screen and (max-width: 420px) {\n    .keyboard-button-module__wrapper--LoMrW {\n      width: 15vw;\n      height: 15vw; } }\n  .keyboard-button-module__wrapper--LoMrW:hover {\n    background-color: rgba(255, 255, 255, 0.2);\n    cursor: default; }\n\n.keyboard-button-module__equal--eyjLK {\n  color: #2b589a;\n  background-color: #FFF; }\n  .keyboard-button-module__equal--eyjLK:hover {\n    background-color: rgba(255, 255, 255, 0.8); }\n", "",{"version":3,"sources":["webpack://./src/components/keyboard-button/keyboard-button.module.scss"],"names":[],"mappings":"AAIA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,eARwB;EASxB,gBATwB;EAUxB,WAToB;EAUpB,YAVoB;EAWpB,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,cAAc,EAAA;EAEd;IAbF;MAcI,WAhByB;MAiBzB,YAjByB,EAAA,EAwB5B;EAtBD;IAmBI,0CAA0C;IAC1C,eAAe,EAAA;;AAInB;EACE,cAA2B;EAC3B,sBAAsB,EAAA;EAFxB;IAKI,0CAA0C,EAAA","sourcesContent":["$max-button-diameter: 80px;\r\n$button-diameter: 10vh;\r\n$button-diameter-mobile: 15vw;\r\n\r\n.wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  max-width: $max-button-diameter;\r\n  max-height: $max-button-diameter;\r\n  width: $button-diameter;\r\n  height: $button-diameter;\r\n  border-radius: 50%;\r\n  color: #FFF;\r\n  font-size: 2.25em;\r\n  margin: 0 10px;\r\n\r\n  @media screen and (max-width: 420px) {\r\n    width: $button-diameter-mobile;\r\n    height: $button-diameter-mobile;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.2);\r\n    cursor: default;\r\n  }\r\n}\r\n\r\n.equal {\r\n  color: rgba(43, 88, 154, 1);\r\n  background-color: #FFF;\r\n\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.8);\r\n  }\r\n}\r\n\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".keyboard-button-module__wrapper--LoMrW {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 80px;\n  max-height: 80px;\n  width: 20%;\n  height: 20%;\n  border-radius: 50%;\n  color: #FFF;\n  font-size: 2.25em;\n  margin: 0 10px; }\n  @media screen and (max-width: 420px) {\n    .keyboard-button-module__wrapper--LoMrW {\n      width: 15vw;\n      height: 15vw; } }\n  .keyboard-button-module__wrapper--LoMrW:hover {\n    background-color: rgba(255, 255, 255, 0.2);\n    cursor: default; }\n\n.keyboard-button-module__equal--eyjLK {\n  color: #2b589a;\n  background-color: #FFF; }\n  .keyboard-button-module__equal--eyjLK:hover {\n    background-color: rgba(255, 255, 255, 0.8); }\n", "",{"version":3,"sources":["webpack://./src/components/keyboard-button/keyboard-button.module.scss"],"names":[],"mappings":"AAIA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,eARwB;EASxB,gBATwB;EAUxB,UATmB;EAUnB,WAVmB;EAWnB,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,cAAc,EAAA;EAEd;IAbF;MAcI,WAhByB;MAiBzB,YAjByB,EAAA,EAwB5B;EAtBD;IAmBI,0CAA0C;IAC1C,eAAe,EAAA;;AAInB;EACE,cAA2B;EAC3B,sBAAsB,EAAA;EAFxB;IAKI,0CAA0C,EAAA","sourcesContent":["$max-button-diameter: 80px;\r\n$button-diameter: 20%;\r\n$button-diameter-mobile: 15vw;\r\n\r\n.wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  max-width: $max-button-diameter;\r\n  max-height: $max-button-diameter;\r\n  width: $button-diameter;\r\n  height: $button-diameter;\r\n  border-radius: 50%;\r\n  color: #FFF;\r\n  font-size: 2.25em;\r\n  margin: 0 10px;\r\n\r\n  @media screen and (max-width: 420px) {\r\n    width: $button-diameter-mobile;\r\n    height: $button-diameter-mobile;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.2);\r\n    cursor: default;\r\n  }\r\n}\r\n\r\n.equal {\r\n  color: rgba(43, 88, 154, 1);\r\n  background-color: #FFF;\r\n\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.8);\r\n  }\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"wrapper": "keyboard-button-module__wrapper--LoMrW",
@@ -36358,6 +36358,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../keyboard-button/keyboard-button */ "./src/components/keyboard-button/keyboard-button.tsx");
 /* harmony import */ var _keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./keyboard.module.scss */ "./src/components/keyboard/keyboard.module.scss");
 /* harmony import */ var _utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/to-postfix */ "./src/utils/to-postfix.ts");
+/* harmony import */ var _utils_execute__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/execute */ "./src/utils/execute.ts");
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../consts */ "./src/consts/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -36375,38 +36377,16 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 
+
+
 var Keyboard = function () {
     var keys = ["C", "\u221A", "%", "/", "7", "8", "9", "\u00D7", "4", "5", "6", "-", "1", "2", "3", "+", "00", "0", ",", "="];
-    var input = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (store) { return store.calc; }).input;
+    var _a = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (store) { return store.calc; }), input = _a.input, isCalculated = _a.isCalculated;
     var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-    var calculate = function (input) {
-        var postfixStr = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__.toPostfix)(input);
-        var stack = [];
-        postfixStr.forEach(function (el) {
-            if (!isNaN(+el)) {
-                stack.push(el);
-            }
-            else {
-                var temp = void 0;
-                switch (el) {
-                    case "+":
-                        temp = +stack[stack.length - 2] + +stack[stack.length - 1];
-                        break;
-                    case "-":
-                        temp = +stack[stack.length - 2] - +stack[stack.length - 1];
-                        break;
-                    case "\u00D7":
-                        temp = +stack[stack.length - 2] * +stack[stack.length - 1];
-                        break;
-                    case "/":
-                        temp = +stack[stack.length - 2] / +stack[stack.length - 1];
-                        break;
-                }
-                stack.splice(stack.length - 2, 2);
-                stack.push(temp);
-            }
-        });
-        return stack[0];
+    var calculate = function (infixStr) {
+        var postfixStrArray = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__.toPostfix)(infixStr);
+        var result = (0,_utils_execute__WEBPACK_IMPORTED_MODULE_6__.execute)(postfixStrArray);
+        return result;
     };
     var onButtonClick = function (e) {
         var target = e.target;
@@ -36414,11 +36394,16 @@ var Keyboard = function () {
             case "C":
                 dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
                 break;
+            case _consts__WEBPACK_IMPORTED_MODULE_7__.operators.square.value:
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)("".concat(target.textContent, "(").concat(input, ")")));
+                break;
             case "=":
                 dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateResult)(calculate(input)));
                 break;
             default:
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)(input + target.textContent));
+                if (isCalculated)
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)((isCalculated ? '' : input) + target.textContent));
         }
     };
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", __assign({ className: "".concat(_keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].keyboard) }, { children: keys.map(function (el, index) {
@@ -36478,24 +36463,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "operators": () => (/* binding */ operators)
 /* harmony export */ });
-var operators = [
-    {
+var operators = {
+    bracket: {
+        value: "(",
+        priority: 0
+    },
+    plus: {
         value: "+",
         priority: 1
     },
-    {
+    minus: {
         value: "-",
         priority: 1
     },
-    {
+    multiplication: {
         value: "\u00D7",
         priority: 2,
     },
-    {
+    division: {
         value: "/",
         priority: 2
+    },
+    square: {
+        value: "\u221A",
+        priority: 3
+    },
+    comma: {
+        value: ",",
+        priority: 10
     }
-];
+};
 
 
 /***/ }),
@@ -36599,18 +36596,19 @@ var __assign = (undefined && undefined.__assign) || function () {
 var calcInitialState = {
     result: '',
     input: '',
+    isCalculated: false,
 };
 var calcReducer = function (state, action) {
     if (state === void 0) { state = calcInitialState; }
     switch (action.type) {
         case _actions_calc_actions__WEBPACK_IMPORTED_MODULE_0__.CLEAR_CALC: {
-            return __assign(__assign({}, state), { input: '', result: '' });
+            return __assign(__assign({}, state), { input: '', result: '', isCalculated: false });
         }
         case _actions_calc_actions__WEBPACK_IMPORTED_MODULE_0__.UPDATE_INPUT: {
             return __assign(__assign({}, state), { input: action.value });
         }
         case _actions_calc_actions__WEBPACK_IMPORTED_MODULE_0__.UPDATE_RESULT: {
-            return __assign(__assign({}, state), { result: action.value });
+            return __assign(__assign({}, state), { result: action.value, isCalculated: true });
         }
         default: return state;
     }
@@ -36618,6 +36616,50 @@ var calcReducer = function (state, action) {
 var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
     calc: calcReducer
 });
+
+
+/***/ }),
+
+/***/ "./src/utils/execute.ts":
+/*!******************************!*\
+  !*** ./src/utils/execute.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "execute": () => (/* binding */ execute)
+/* harmony export */ });
+var execute = function (postfixStr) {
+    var stack = [];
+    postfixStr.forEach(function (el) {
+        if (!isNaN(Number.parseFloat(el))) {
+            stack.push(Number.parseFloat(el));
+        }
+        else {
+            var temp = void 0;
+            switch (el) {
+                case "+":
+                    temp = stack[stack.length - 2] + stack[stack.length - 1];
+                    break;
+                case "-":
+                    temp = +stack[stack.length - 2] - +stack[stack.length - 1];
+                    break;
+                case "\u00D7":
+                    temp = +stack[stack.length - 2] * +stack[stack.length - 1];
+                    break;
+                case "/":
+                    temp = +stack[stack.length - 2] / +stack[stack.length - 1];
+                    break;
+            }
+            stack.splice(stack.length - 2, 2);
+            stack.push(temp);
+        }
+    });
+    var result = stack[0].toString().replace(/\./, ',');
+    return result;
+};
 
 
 /***/ }),
@@ -36636,28 +36678,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts */ "./src/consts/index.ts");
 
 var toPostfix = function (input) {
-    var stack = [], numAsStr = '';
-    var postfixStr = [], infixStr = input.split('');
+    var numAsStr = '';
+    var stack = [], postfixStr = [], infixStr = input.split('');
     infixStr.forEach(function (currentToken) {
         if (!isNaN(+currentToken)) {
             numAsStr += currentToken;
         }
+        else if (currentToken === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.comma.value) {
+            numAsStr += '.';
+        }
         else if (numAsStr !== '') {
             postfixStr.push(numAsStr);
             numAsStr = '';
-            var currentTokenWithPriority_1 = _consts__WEBPACK_IMPORTED_MODULE_0__.operators.find(function (el) { return el.value === currentToken; });
-            if (currentTokenWithPriority_1) {
+            var currentTokenWithPriority = Object.entries(_consts__WEBPACK_IMPORTED_MODULE_0__.operators).find(function (_a) {
+                var value = _a[1];
+                return value.value === currentToken;
+            });
+            if (currentTokenWithPriority) {
                 if (stack.length) {
-                    var stackCopy = stack.reverse().filter(function (el) {
-                        if (el.priority > currentTokenWithPriority_1.priority) {
-                            postfixStr.push(el.value);
-                        }
-                        else
-                            return el;
-                    });
-                    stack = stackCopy;
+                    if (stack[stack.length - 1].priority >= currentTokenWithPriority[1].priority) {
+                        postfixStr.push(stack[stack.length - 1].value);
+                        stack.pop();
+                    }
                 }
-                stack.push(currentTokenWithPriority_1);
+                stack.push(currentTokenWithPriority[1]);
             }
             else
                 return 'Error';
