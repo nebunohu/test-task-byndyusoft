@@ -14,6 +14,7 @@ import { execute } from '../../utils/execute';
 
 // Consts
 import { operators } from '../../consts';
+import { addTokenToInput } from '../../utils/add-token-to-input';
 
 const Keyboard: FC = () => {
   const [isKeyPressed, setisKeyPressed] = useState(false);
@@ -66,38 +67,41 @@ const Keyboard: FC = () => {
       break;
     default:
       if ( isCalculated ) dispatch(clearCalc());
-      dispatch(updateInput((isCalculated ? '' : input) + target.textContent));
+      dispatch(updateInput(addTokenToInput(target.textContent as string, input, isCalculated)));
     } 
   };
 
   const onKeyDown = (e: any) => {
-    setisKeyPressed(true);
-    if (!isKeyPressedRef.current) {
-      switch (e.key) {
-      case "Enter":
-        dispatch(updateResult(calculate(calcInputRef.current as string)));
-        break;
-      case '0':
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-      case '+':
-      case '-':
-      case '/':
-      case '*':
-        if ( isCalculated ) dispatch(clearCalc());
-        dispatch(updateInput((isCalculated ? '' : calcInputRef.current) + e.key === '*' ? operators.multiplication.value : e.key));
-        break;
-      default:
+    const input = calcInputRef.current as string;
+    if ( typeof input === 'string') {
+      setisKeyPressed(true);
+      if (!isKeyPressedRef.current) {
+        switch (e.key) {
+        case "Enter":
+          dispatch(updateResult(calculate(input)));
+          break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '+':
+        case '-':
+        case '/':
+        case '*':
+          if ( isCalculated ) dispatch(clearCalc());
+          
+          dispatch(updateInput(addTokenToInput(e.key, input, isCalculated)));
+          break;
+        default:
+        }
       }
     }
-    
   };
 
   const onKeyUp = (e: any) => {
