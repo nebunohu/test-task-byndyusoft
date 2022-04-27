@@ -36380,7 +36380,28 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 var Keyboard = function () {
-    var keys = ["C", "\u221A", "%", "/", "7", "8", "9", "\u00D7", "4", "5", "6", "-", "1", "2", "3", "+", "00", "0", ",", "="];
+    var keys = [
+        "C",
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.square.value,
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.percent.value,
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.division.value,
+        "7",
+        "8",
+        "9",
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.multiplication.value,
+        "4",
+        "5",
+        "6",
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.minus.value,
+        "1",
+        "2",
+        "3",
+        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.plus.value,
+        "00",
+        "0",
+        ",",
+        "="
+    ];
     var _a = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (store) { return store.calc; }), input = _a.input, isCalculated = _a.isCalculated;
     var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
     var calculate = function (infixStr) {
@@ -36486,11 +36507,15 @@ var operators = {
     },
     square: {
         value: "\u221A",
-        priority: 3
+        priority: 0
     },
     comma: {
         value: ",",
         priority: 10
+    },
+    percent: {
+        value: "%",
+        priority: 3
     }
 };
 
@@ -36631,33 +36656,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "execute": () => (/* binding */ execute)
 /* harmony export */ });
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts */ "./src/consts/index.ts");
+
 var execute = function (postfixStr) {
     var stack = [];
-    postfixStr.forEach(function (el) {
+    postfixStr.forEach(function (el, index) {
         if (!isNaN(Number.parseFloat(el))) {
             stack.push(Number.parseFloat(el));
         }
         else {
-            var temp = void 0;
+            var temp = 0;
+            var first = stack[stack.length - 2];
+            var second = stack[stack.length - 1];
             switch (el) {
-                case "+":
-                    temp = stack[stack.length - 2] + stack[stack.length - 1];
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.plus.value:
+                    temp = first + second;
                     break;
-                case "-":
-                    temp = +stack[stack.length - 2] - +stack[stack.length - 1];
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.minus.value:
+                    temp = first - second;
                     break;
-                case "\u00D7":
-                    temp = +stack[stack.length - 2] * +stack[stack.length - 1];
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value:
+                    temp = first * second;
                     break;
-                case "/":
-                    temp = +stack[stack.length - 2] / +stack[stack.length - 1];
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.division.value:
+                    temp = first / second;
+                    break;
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.square.value:
+                    temp = Math.sqrt(second);
+                    break;
+                case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.percent.value:
+                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.plus.value)
+                        temp = first * second / 100;
+                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value)
+                        temp = second / 100;
                     break;
             }
-            stack.splice(stack.length - 2, 2);
+            el === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.percent.value ? stack.splice(stack.length - 1, 1) : stack.splice(stack.length - 2, 2);
             stack.push(temp);
         }
     });
-    var result = stack[0].toString().replace(/\./, ',').slice(0, 10);
+    var result = stack[0].toString().replace(/\./, ',').slice(0, 9);
     return result;
 };
 
@@ -36705,6 +36743,9 @@ var toPostfix = function (input) {
             }
             else
                 return 'Error';
+        }
+        else if (currentToken === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.square.value) {
+            stack.push(_consts__WEBPACK_IMPORTED_MODULE_0__.operators.square);
         }
     });
     if (numAsStr)
