@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".keyboard-button-module__wrapper--LoMrW {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 80px;\n  max-height: 80px;\n  width: 20%;\n  height: 20%;\n  border-radius: 50%;\n  color: #FFF;\n  font-size: 2.25em;\n  margin: 0 10px; }\n  @media screen and (max-width: 420px) {\n    .keyboard-button-module__wrapper--LoMrW {\n      width: 15vw;\n      height: 15vw; } }\n  .keyboard-button-module__wrapper--LoMrW:active, .keyboard-button-module__wrapper--LoMrW:hover {\n    background-color: rgba(255, 255, 255, 0.2);\n    cursor: default; }\n\n.keyboard-button-module__equal--eyjLK {\n  color: #2b589a;\n  background-color: #FFF; }\n  .keyboard-button-module__equal--eyjLK:active, .keyboard-button-module__equal--eyjLK:hover {\n    background-color: rgba(255, 255, 255, 0.8); }\n", "",{"version":3,"sources":["webpack://./src/components/keyboard-button/keyboard-button.module.scss"],"names":[],"mappings":"AAIA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,eARwB;EASxB,gBATwB;EAUxB,UATmB;EAUnB,WAVmB;EAWnB,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,cAAc,EAAA;EAEd;IAbF;MAcI,WAhByB;MAiBzB,YAjByB,EAAA,EAyB5B;EAvBD;IAoBI,0CAA0C;IAC1C,eAAe,EAAA;;AAInB;EACE,cAA2B;EAC3B,sBAAsB,EAAA;EAFxB;IAMI,0CAA0C,EAAA","sourcesContent":["$max-button-diameter: 80px;\r\n$button-diameter: 20%;\r\n$button-diameter-mobile: 15vw;\r\n\r\n.wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  max-width: $max-button-diameter;\r\n  max-height: $max-button-diameter;\r\n  width: $button-diameter;\r\n  height: $button-diameter;\r\n  border-radius: 50%;\r\n  color: #FFF;\r\n  font-size: 2.25em;\r\n  margin: 0 10px;\r\n\r\n  @media screen and (max-width: 420px) {\r\n    width: $button-diameter-mobile;\r\n    height: $button-diameter-mobile;\r\n  }\r\n\r\n  &:active,\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.2);\r\n    cursor: default;\r\n  }\r\n}\r\n\r\n.equal {\r\n  color: rgba(43, 88, 154, 1);\r\n  background-color: #FFF;\r\n\r\n  &:active,\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.8);\r\n  }\r\n}\r\n\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".keyboard-button-module__wrapper--LoMrW {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 80px;\n  max-height: 80px;\n  width: 20%;\n  height: 20%;\n  border-radius: 50%;\n  color: #FFF;\n  font-size: 2.25em;\n  margin: 0 10px; }\n  @media screen and (min-width: 421px) {\n    .keyboard-button-module__wrapper--LoMrW:hover {\n      background-color: rgba(255, 255, 255, 0.2);\n      cursor: default; } }\n  @media screen and (max-width: 420px) {\n    .keyboard-button-module__wrapper--LoMrW {\n      width: 15vw;\n      height: 15vw; }\n      .keyboard-button-module__wrapper--LoMrW:active {\n        background-color: rgba(255, 255, 255, 0.2);\n        cursor: default; } }\n\n.keyboard-button-module__equal--eyjLK {\n  color: #2b589a;\n  background-color: #FFF; }\n  .keyboard-button-module__equal--eyjLK:active, .keyboard-button-module__equal--eyjLK:hover {\n    background-color: rgba(255, 255, 255, 0.8); }\n", "",{"version":3,"sources":["webpack://./src/components/keyboard-button/keyboard-button.module.scss"],"names":[],"mappings":"AAIA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,eARwB;EASxB,gBATwB;EAUxB,UATmB;EAUnB,WAVmB;EAWnB,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,cAAc,EAAA;EAEd;IAbF;MAeM,0CAA0C;MAC1C,eAAe,EAAA,EAChB;EAGH;IApBF;MAqBI,WAvByB;MAwBzB,YAxByB,EAAA;MAE7B;QAyBM,0CAA0C;QAC1C,eAAe,EAAA,EAChB;;AAIL;EACE,cAA2B;EAC3B,sBAAsB,EAAA;EAFxB;IAMI,0CAA0C,EAAA","sourcesContent":["$max-button-diameter: 80px;\r\n$button-diameter: 20%;\r\n$button-diameter-mobile: 15vw;\r\n\r\n.wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  max-width: $max-button-diameter;\r\n  max-height: $max-button-diameter;\r\n  width: $button-diameter;\r\n  height: $button-diameter;\r\n  border-radius: 50%;\r\n  color: #FFF;\r\n  font-size: 2.25em;\r\n  margin: 0 10px;\r\n\r\n  @media screen and (min-width: 421px) {\r\n    &:hover {\r\n      background-color: rgba(255, 255, 255, 0.2);\r\n      cursor: default;\r\n    }\r\n  }\r\n\r\n  @media screen and (max-width: 420px) {\r\n    width: $button-diameter-mobile;\r\n    height: $button-diameter-mobile;\r\n\r\n    &:active {\r\n      background-color: rgba(255, 255, 255, 0.2);\r\n      cursor: default;\r\n    }\r\n  }\r\n}\r\n\r\n.equal {\r\n  color: rgba(43, 88, 154, 1);\r\n  background-color: #FFF;\r\n\r\n  &:active,\r\n  &:hover {\r\n    background-color: rgba(255, 255, 255, 0.8);\r\n  }\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"wrapper": "keyboard-button-module__wrapper--LoMrW",
@@ -181,7 +181,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: \"Geometria\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"ttf\"); }\n\n/* Указываем box sizing */\n*,\n*::before,\n*::after {\n  box-sizing: border-box; }\n\n/* Убираем внутренние отступы */\nul[class],\nol[class] {\n  padding: 0; }\n\n/* Убираем внешние отступы */\nbody,\nh1,\nh2,\nh3,\nh4,\np,\nul[class],\nol[class],\nli,\nfigure,\nfigcaption,\nblockquote,\ndl,\ndd {\n  margin: 0; }\n\n/* Выставляем основные настройки по-умолчанию для body */\nbody {\n  min-height: 100vh;\n  scroll-behavior: smooth;\n  text-rendering: optimizeSpeed;\n  line-height: 1.5; }\n\n/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/\nul[class],\nol[class] {\n  list-style: none; }\n\n/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */\na:not([class]) {\n  text-decoration-skip-ink: auto; }\n\n/* Упрощаем работу с изображениями */\nimg {\n  max-width: 100%;\n  display: block; }\n\n/* Указываем понятную периодичность в потоке данных у article*/\narticle > * + * {\n  margin-top: 1em; }\n\n/* Наследуем шрифты для инпутов и кнопок */\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit; }\n\n/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */\n@media (prefers-reduced-motion: reduce) {\n  * {\n    animation-duration: 0.01ms !important;\n    animation-iteration-count: 1 !important;\n    transition-duration: 0.01ms !important;\n    scroll-behavior: auto !important; } }\n", "",{"version":3,"sources":["webpack://./src/global-styles.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,wBAAwB;EACxB,kHAC4C,EAAA;;AAG9C,yBAAA;AACA;;;EAGE,sBAAsB,EAAA;;AAGxB,+BAAA;AACA;;EAEE,UAAU,EAAA;;AAGZ,4BAAA;AACA;;;;;;;;;;;;;;EAcE,SAAS,EAAA;;AAGX,wDAAA;AACA;EACE,iBAAiB;EACjB,uBAAuB;EACvB,6BAA6B;EAC7B,gBAAgB,EAAA;;AAGlB,iFAAA;AACA;;EAEE,gBAAgB,EAAA;;AAGlB,qEAAA;AACA;EACE,8BAA8B,EAAA;;AAGhC,oCAAA;AACA;EACE,eAAe;EACf,cAAc,EAAA;;AAGhB,8DAAA;AACA;EACE,eAAe,EAAA;;AAGjB,0CAAA;AACA;;;;EAIE,aAAa,EAAA;;AAGf,sFAAA;AACA;EACE;IACE,qCAAqC;IACrC,uCAAuC;IACvC,sCAAsC;IACtC,gCAAgC,EAAA,EACjC","sourcesContent":["@font-face {\r\n  font-family: \"Geometria\";\r\n  src: url('./fonts/Geometria.woff') format('woff'),\r\n    url('./fonts/Geometria.ttf') format('ttf');\r\n}\r\n\r\n/* Указываем box sizing */\r\n*,\r\n*::before,\r\n*::after {\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* Убираем внутренние отступы */\r\nul[class],\r\nol[class] {\r\n  padding: 0;\r\n}\r\n\r\n/* Убираем внешние отступы */\r\nbody,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\np,\r\nul[class],\r\nol[class],\r\nli,\r\nfigure,\r\nfigcaption,\r\nblockquote,\r\ndl,\r\ndd {\r\n  margin: 0;\r\n}\r\n\r\n/* Выставляем основные настройки по-умолчанию для body */\r\nbody {\r\n  min-height: 100vh;\r\n  scroll-behavior: smooth;\r\n  text-rendering: optimizeSpeed;\r\n  line-height: 1.5;\r\n}\r\n\r\n/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/\r\nul[class],\r\nol[class] {\r\n  list-style: none;\r\n}\r\n\r\n/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */\r\na:not([class]) {\r\n  text-decoration-skip-ink: auto;\r\n}\r\n\r\n/* Упрощаем работу с изображениями */\r\nimg {\r\n  max-width: 100%;\r\n  display: block;\r\n}\r\n\r\n/* Указываем понятную периодичность в потоке данных у article*/\r\narticle > * + * {\r\n  margin-top: 1em;\r\n}\r\n\r\n/* Наследуем шрифты для инпутов и кнопок */\r\ninput,\r\nbutton,\r\ntextarea,\r\nselect {\r\n  font: inherit;\r\n}\r\n\r\n/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */\r\n@media (prefers-reduced-motion: reduce) {\r\n  * {\r\n    animation-duration: 0.01ms !important;\r\n    animation-iteration-count: 1 !important;\r\n    transition-duration: 0.01ms !important;\r\n    scroll-behavior: auto !important;\r\n  }\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: \"Geometria\";\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"ttf\"); }\n\n/* Указываем box sizing */\n*,\n*::before,\n*::after {\n  box-sizing: border-box; }\n\n/* Убираем внутренние отступы */\nul[class],\nol[class] {\n  padding: 0; }\n\n/* Убираем внешние отступы */\nbody,\nh1,\nh2,\nh3,\nh4,\np,\nul[class],\nol[class],\nli,\nfigure,\nfigcaption,\nblockquote,\ndl,\ndd {\n  margin: 0; }\n\n/* Выставляем основные настройки по-умолчанию для body */\nbody {\n  min-height: 100vh;\n  scroll-behavior: smooth;\n  text-rendering: optimizeSpeed;\n  line-height: 1.5; }\n\n/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/\nul[class],\nol[class] {\n  list-style: none; }\n\n/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */\na:not([class]) {\n  text-decoration-skip-ink: auto; }\n\n/* Упрощаем работу с изображениями */\nimg {\n  max-width: 100%;\n  display: block; }\n\n/* Указываем понятную периодичность в потоке данных у article*/\narticle > * + * {\n  margin-top: 1em; }\n\n/* Наследуем шрифты для инпутов и кнопок */\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit; }\n", "",{"version":3,"sources":["webpack://./src/global-styles.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,wBAAwB;EACxB,kHAC4C,EAAA;;AAG9C,yBAAA;AACA;;;EAGE,sBAAsB,EAAA;;AAGxB,+BAAA;AACA;;EAEE,UAAU,EAAA;;AAGZ,4BAAA;AACA;;;;;;;;;;;;;;EAcE,SAAS,EAAA;;AAGX,wDAAA;AACA;EACE,iBAAiB;EACjB,uBAAuB;EACvB,6BAA6B;EAC7B,gBAAgB,EAAA;;AAGlB,iFAAA;AACA;;EAEE,gBAAgB,EAAA;;AAGlB,qEAAA;AACA;EACE,8BAA8B,EAAA;;AAGhC,oCAAA;AACA;EACE,eAAe;EACf,cAAc,EAAA;;AAGhB,8DAAA;AACA;EACE,eAAe,EAAA;;AAGjB,0CAAA;AACA;;;;EAIE,aAAa,EAAA","sourcesContent":["@font-face {\r\n  font-family: \"Geometria\";\r\n  src: url('./fonts/Geometria.woff') format('woff'),\r\n    url('./fonts/Geometria.ttf') format('ttf');\r\n}\r\n\r\n/* Указываем box sizing */\r\n*,\r\n*::before,\r\n*::after {\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* Убираем внутренние отступы */\r\nul[class],\r\nol[class] {\r\n  padding: 0;\r\n}\r\n\r\n/* Убираем внешние отступы */\r\nbody,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\np,\r\nul[class],\r\nol[class],\r\nli,\r\nfigure,\r\nfigcaption,\r\nblockquote,\r\ndl,\r\ndd {\r\n  margin: 0;\r\n}\r\n\r\n/* Выставляем основные настройки по-умолчанию для body */\r\nbody {\r\n  min-height: 100vh;\r\n  scroll-behavior: smooth;\r\n  text-rendering: optimizeSpeed;\r\n  line-height: 1.5;\r\n}\r\n\r\n/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/\r\nul[class],\r\nol[class] {\r\n  list-style: none;\r\n}\r\n\r\n/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */\r\na:not([class]) {\r\n  text-decoration-skip-ink: auto;\r\n}\r\n\r\n/* Упрощаем работу с изображениями */\r\nimg {\r\n  max-width: 100%;\r\n  display: block;\r\n}\r\n\r\n/* Указываем понятную периодичность в потоке данных у article*/\r\narticle > * + * {\r\n  margin-top: 1em;\r\n}\r\n\r\n/* Наследуем шрифты для инпутов и кнопок */\r\ninput,\r\nbutton,\r\ntextarea,\r\nselect {\r\n  font: inherit;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36384,8 +36384,7 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 var Keyboard = function () {
-    var _a = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isKeyPressed = _a[0], setisKeyPressed = _a[1];
-    var keys = [
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isKeyPressed = _a[0], setisKeyPressed = _a[1], keys = [
         "C",
         _consts__WEBPACK_IMPORTED_MODULE_8__.operators.square.value,
         _consts__WEBPACK_IMPORTED_MODULE_8__.operators.percent.value,
@@ -36406,12 +36405,7 @@ var Keyboard = function () {
         "0",
         _consts__WEBPACK_IMPORTED_MODULE_8__.operators.comma.value,
         "="
-    ];
-    var _b = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (store) { return store.calc; }), input = _b.input, isCalculated = _b.isCalculated;
-    var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-    var calcInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    var isKeyPressedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    var isCalculatedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(isCalculated);
+    ], _b = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (store) { return store.calc; }), input = _b.input, isCalculated = _b.isCalculated, dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(), calcInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(input), isKeyPressedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(isKeyPressed), isCalculatedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(isCalculated);
     var calculate = function (infixStr) {
         var postfixStrArray = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_6__.toPostfix)(infixStr);
         var result = (0,_utils_execute__WEBPACK_IMPORTED_MODULE_7__.execute)(postfixStrArray);
@@ -36419,15 +36413,16 @@ var Keyboard = function () {
     };
     var onButtonClick = function (e) {
         var target = e.target;
-        switch (target.textContent) {
+        var token = target.textContent;
+        switch (token) {
             case "C":
                 dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
                 break;
             case _consts__WEBPACK_IMPORTED_MODULE_8__.operators.square.value:
                 if (!input)
-                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(target.textContent, "(0)")));
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(token, "(0)")));
                 else
-                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(target.textContent, "(").concat(input, ")")));
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(token, "(").concat(input, ")")));
                 break;
             case "=":
                 dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateResult)(calculate(input)));
@@ -36435,7 +36430,7 @@ var Keyboard = function () {
             default:
                 if (isCalculated)
                     dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)((0,_utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__.addTokenToInput)(target.textContent, input, isCalculated)));
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)((0,_utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__.addTokenToInput)(token, input, isCalculated)));
         }
     };
     var onKeyDown = function (e) {
@@ -36478,7 +36473,7 @@ var Keyboard = function () {
             }
         }
     };
-    var onKeyUp = function (e) {
+    var onKeyUp = function () {
         setisKeyPressed(false);
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -36488,10 +36483,10 @@ var Keyboard = function () {
     }, [input, isKeyPressed, isCalculated]);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         document.addEventListener('keydown', function (e) { return onKeyDown(e); });
-        document.addEventListener('keyup', function (e) { return onKeyUp(e); });
+        document.addEventListener('keyup', function () { return onKeyUp(); });
         return function () {
             document.removeEventListener('keydown', function (e) { return onKeyDown(e); });
-            document.removeEventListener('keyup', function (e) { return onKeyUp(e); });
+            document.removeEventListener('keyup', function () { return onKeyUp(); });
         };
     }, []);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", __assign({ className: "".concat(_keyboard_module_scss__WEBPACK_IMPORTED_MODULE_5__["default"].keyboard) }, { children: keys.map(function (el, index) {
