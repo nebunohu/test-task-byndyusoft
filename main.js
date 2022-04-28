@@ -36353,13 +36353,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks */ "./src/hooks/index.ts");
-/* harmony import */ var _redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions/calc-actions */ "./src/redux/actions/calc-actions.ts");
-/* harmony import */ var _keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../keyboard-button/keyboard-button */ "./src/components/keyboard-button/keyboard-button.tsx");
-/* harmony import */ var _keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./keyboard.module.scss */ "./src/components/keyboard/keyboard.module.scss");
-/* harmony import */ var _utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/to-postfix */ "./src/utils/to-postfix.ts");
-/* harmony import */ var _utils_execute__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/execute */ "./src/utils/execute.ts");
-/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../consts */ "./src/consts/index.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks */ "./src/hooks/index.ts");
+/* harmony import */ var _redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions/calc-actions */ "./src/redux/actions/calc-actions.ts");
+/* harmony import */ var _keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../keyboard-button/keyboard-button */ "./src/components/keyboard-button/keyboard-button.tsx");
+/* harmony import */ var _keyboard_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./keyboard.module.scss */ "./src/components/keyboard/keyboard.module.scss");
+/* harmony import */ var _utils_to_postfix__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/to-postfix */ "./src/utils/to-postfix.ts");
+/* harmony import */ var _utils_execute__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/execute */ "./src/utils/execute.ts");
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../consts */ "./src/consts/index.ts");
+/* harmony import */ var _utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/add-token-to-input */ "./src/utils/add-token-to-input.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -36379,58 +36381,123 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 
+
+
 var Keyboard = function () {
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isKeyPressed = _a[0], setisKeyPressed = _a[1];
     var keys = [
         "C",
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.square.value,
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.percent.value,
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.division.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.square.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.percent.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.division.value,
         "7",
         "8",
         "9",
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.multiplication.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.multiplication.value,
         "4",
         "5",
         "6",
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.minus.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.minus.value,
         "1",
         "2",
         "3",
-        _consts__WEBPACK_IMPORTED_MODULE_7__.operators.plus.value,
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.plus.value,
         "00",
         "0",
-        ",",
+        _consts__WEBPACK_IMPORTED_MODULE_8__.operators.comma.value,
         "="
     ];
-    var _a = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (store) { return store.calc; }), input = _a.input, isCalculated = _a.isCalculated;
-    var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+    var _b = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (store) { return store.calc; }), input = _b.input, isCalculated = _b.isCalculated;
+    var dispatch = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+    var calcInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    var isKeyPressedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    var isCalculatedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(isCalculated);
     var calculate = function (infixStr) {
-        var postfixStrArray = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_5__.toPostfix)(infixStr);
-        var result = (0,_utils_execute__WEBPACK_IMPORTED_MODULE_6__.execute)(postfixStrArray);
+        var postfixStrArray = (0,_utils_to_postfix__WEBPACK_IMPORTED_MODULE_6__.toPostfix)(infixStr);
+        var result = (0,_utils_execute__WEBPACK_IMPORTED_MODULE_7__.execute)(postfixStrArray);
         return result;
     };
     var onButtonClick = function (e) {
         var target = e.target;
         switch (target.textContent) {
             case "C":
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
                 break;
-            case _consts__WEBPACK_IMPORTED_MODULE_7__.operators.square.value:
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)("".concat(target.textContent, "(").concat(input, ")")));
+            case _consts__WEBPACK_IMPORTED_MODULE_8__.operators.square.value:
+                if (!input)
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(target.textContent, "(0)")));
+                else
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)("".concat(target.textContent, "(").concat(input, ")")));
                 break;
             case "=":
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateResult)(calculate(input)));
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateResult)(calculate(input)));
                 break;
             default:
                 if (isCalculated)
-                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.clearCalc)());
-                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_2__.updateInput)((isCalculated ? '' : input) + target.textContent));
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
+                dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)((0,_utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__.addTokenToInput)(target.textContent, input, isCalculated)));
         }
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", __assign({ className: "".concat(_keyboard_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].keyboard) }, { children: keys.map(function (el, index) {
+    var onKeyDown = function (e) {
+        var input = calcInputRef.current;
+        if (typeof input === 'string') {
+            if (e.key !== 'Shift')
+                setisKeyPressed(true);
+            if (!isKeyPressedRef.current) {
+                switch (e.key) {
+                    case "Enter":
+                        dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateResult)(calculate(input)));
+                        break;
+                    case "Escape":
+                        dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
+                        break;
+                    case '0':
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
+                    case '6':
+                    case '7':
+                    case '8':
+                    case '9':
+                    case '+':
+                    case '-':
+                    case '/':
+                    case '*':
+                    case '%':
+                        if (isCalculatedRef.current)
+                            dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.clearCalc)());
+                        dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)((0,_utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__.addTokenToInput)(e.key, input, isCalculatedRef.current)));
+                        break;
+                    default:
+                }
+                if (e.shiftKey && e.key === '%') {
+                    dispatch((0,_redux_actions_calc_actions__WEBPACK_IMPORTED_MODULE_3__.updateInput)((0,_utils_add_token_to_input__WEBPACK_IMPORTED_MODULE_9__.addTokenToInput)(e.key, input, isCalculatedRef.current)));
+                }
+            }
+        }
+    };
+    var onKeyUp = function (e) {
+        setisKeyPressed(false);
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+        calcInputRef.current = input;
+        isKeyPressedRef.current = isKeyPressed;
+        isCalculatedRef.current = isCalculated;
+    }, [input, isKeyPressed, isCalculated]);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+        document.addEventListener('keydown', function (e) { return onKeyDown(e); });
+        document.addEventListener('keyup', function (e) { return onKeyUp(e); });
+        return function () {
+            document.removeEventListener('keydown', function (e) { return onKeyDown(e); });
+            document.removeEventListener('keyup', function (e) { return onKeyUp(e); });
+        };
+    }, []);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", __assign({ className: "".concat(_keyboard_module_scss__WEBPACK_IMPORTED_MODULE_5__["default"].keyboard) }, { children: keys.map(function (el, index) {
             if (el === "=")
-                return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__["default"], { value: el, onClick: onButtonClick, equal: true }, index);
-            return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_3__["default"], { value: el, onClick: onButtonClick }, index);
+                return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_4__["default"], { value: el, onClick: onButtonClick, equal: true }, index);
+            return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_keyboard_button_keyboard_button__WEBPACK_IMPORTED_MODULE_4__["default"], { value: el, onClick: onButtonClick }, index);
         }) })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Keyboard);
@@ -36645,6 +36712,46 @@ var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
 
 /***/ }),
 
+/***/ "./src/utils/add-token-to-input.ts":
+/*!*****************************************!*\
+  !*** ./src/utils/add-token-to-input.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addTokenToInput": () => (/* binding */ addTokenToInput)
+/* harmony export */ });
+/* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts */ "./src/consts/index.ts");
+
+var addTokenToInput = function (token, input, isCalculated) {
+    var returnString = '';
+    var key, isLastOperator = false, isCurrentOperator = false;
+    for (key in _consts__WEBPACK_IMPORTED_MODULE_0__.operators) {
+        if (_consts__WEBPACK_IMPORTED_MODULE_0__.operators[key].value === input[input.length - 1])
+            isLastOperator = true;
+        if (_consts__WEBPACK_IMPORTED_MODULE_0__.operators[key].value === token || token === '*')
+            isCurrentOperator = true;
+    }
+    if (!input) {
+        if (isCurrentOperator)
+            input += '0';
+        if (token === '00')
+            token = '0';
+    }
+    if (input === '0' && (token === '00' || token === '0'))
+        token = '';
+    if (isLastOperator && isCurrentOperator)
+        returnString = "".concat(input.slice(0, input.length - 1)).concat(token === '*' ? _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value : token);
+    else
+        returnString = "".concat((isCalculated ? '' : input)).concat(token === '*' ? _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value : token);
+    return returnString;
+};
+
+
+/***/ }),
+
 /***/ "./src/utils/execute.ts":
 /*!******************************!*\
   !*** ./src/utils/execute.ts ***!
@@ -36685,9 +36792,9 @@ var execute = function (postfixStr) {
                     temp = Math.sqrt(second);
                     break;
                 case _consts__WEBPACK_IMPORTED_MODULE_0__.operators.percent.value:
-                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.plus.value)
+                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.plus.value || postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.minus.value)
                         temp = first * second / 100;
-                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value)
+                    if (postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.multiplication.value || postfixStr[index + 1] === _consts__WEBPACK_IMPORTED_MODULE_0__.operators.division.value)
                         temp = second / 100;
                     break;
             }
