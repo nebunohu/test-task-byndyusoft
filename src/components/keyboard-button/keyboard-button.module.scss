@@ -15,15 +15,21 @@ $button-diameter-mobile: 15vw;
   font-size: 2.25em;
   margin: 0 10px;
 
+  @media screen and (min-width: 421px) {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      cursor: default;
+    }
+  }
+
   @media screen and (max-width: 420px) {
     width: $button-diameter-mobile;
     height: $button-diameter-mobile;
-  }
 
-  &:active,
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    cursor: default;
+    &:active {
+      background-color: rgba(255, 255, 255, 0.2);
+      cursor: default;
+    }
   }
 }
 
@@ -31,9 +37,17 @@ $button-diameter-mobile: 15vw;
   color: rgba(43, 88, 154, 1);
   background-color: #FFF;
 
-  &:active,
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+  @media screen and (min-width: 421px) {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      cursor: default;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    &:active {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
   }
 }
 

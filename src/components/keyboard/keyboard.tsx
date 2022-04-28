@@ -17,34 +17,35 @@ import { operators } from '../../consts';
 import { addTokenToInput } from '../../utils/add-token-to-input';
 
 const Keyboard: FC = () => {
-  const [isKeyPressed, setisKeyPressed] = useState(false);
-  const keys = [
-    "C", 
-    operators.square.value, 
-    operators.percent.value, 
-    operators.division.value, 
-    "7", 
-    "8", 
-    "9", 
-    operators.multiplication.value, 
-    "4", 
-    "5", 
-    "6", 
-    operators.minus.value, 
-    "1", 
-    "2", 
-    "3", 
-    operators.plus.value, 
-    "00", 
-    "0", 
-    operators.comma.value, 
-    "="
-  ];
-
-  const { input, isCalculated } = useSelector(store => store.calc);
-  const dispatch = useDispatch();  
-  const calcInputRef = useRef<string | null>(null);
-  const isKeyPressedRef = useRef<boolean | null>(null);
+  const 
+    [isKeyPressed, setisKeyPressed] = useState(false),
+    keys = [
+      "C", 
+      operators.square.value, 
+      operators.percent.value, 
+      operators.division.value, 
+      "7", 
+      "8", 
+      "9", 
+      operators.multiplication.value, 
+      "4", 
+      "5", 
+      "6", 
+      operators.minus.value, 
+      "1", 
+      "2", 
+      "3", 
+      operators.plus.value, 
+      "00", 
+      "0", 
+      operators.comma.value, 
+      "="
+    ],
+    { input, isCalculated } = useSelector(store => store.calc),
+    dispatch = useDispatch(),
+    calcInputRef = useRef(input),
+    isKeyPressedRef = useRef(isKeyPressed),
+    isCalculatedRef = useRef(isCalculated);
 
   const calculate = (infixStr: string ): string => {    
     const postfixStrArray = toPostfix(infixStr);
@@ -55,30 +56,36 @@ const Keyboard: FC = () => {
 
   const onButtonClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as Element;
-    switch (target.textContent) {
+    const token = target.textContent as string;
+
+    switch (token) {
     case "C":
       dispatch(clearCalc());
       break;
     case operators.square.value:
-      dispatch(updateInput(`${target.textContent}(${input})`));
+      if ( !input ) dispatch(updateInput(`${token}(0)`));
+      else dispatch(updateInput(`${token}(${input})`));
       break;
     case "=":
       dispatch(updateResult(calculate(input)));
       break;
     default:
       if ( isCalculated ) dispatch(clearCalc());
-      dispatch(updateInput(addTokenToInput(target.textContent as string, input, isCalculated)));
+      dispatch(updateInput(addTokenToInput(token, input, isCalculated)));
     } 
   };
 
-  const onKeyDown = (e: any) => {
-    const input = calcInputRef.current as string;
+  const onKeyDown = (e: KeyboardEvent) => {
+    const input = calcInputRef.current;
     if ( typeof input === 'string') {
-      setisKeyPressed(true);
+      if (e.key !== 'Shift') setisKeyPressed(true);
       if (!isKeyPressedRef.current) {
         switch (e.key) {
         case "Enter":
           dispatch(updateResult(calculate(input)));
+          break;
+        case "Escape":
+          dispatch(clearCalc());
           break;
         case '0':
         case '1':
@@ -94,28 +101,39 @@ const Keyboard: FC = () => {
         case '-':
         case '/':
         case '*':
-          if ( isCalculated ) dispatch(clearCalc());
+        case '%':
+          if ( isCalculatedRef.current ) dispatch(clearCalc());
           
-          dispatch(updateInput(addTokenToInput(e.key, input, isCalculated)));
+          dispatch(updateInput(addTokenToInput(e.key, input, isCalculatedRef.current)));
           break;
         default:
+        }
+
+        if ( e.shiftKey && e.key === '%' ) {
+          dispatch(updateInput(addTokenToInput(e.key, input, isCalculatedRef.current)));
         }
       }
     }
   };
 
-  const onKeyUp = (e: any) => {
+  const onKeyUp = () => {
     setisKeyPressed(false);
   };
 
   useEffect(() => {
     calcInputRef.current = input;
     isKeyPressedRef.current = isKeyPressed;
-  }, [input, isKeyPressed]);
+    isCalculatedRef.current = isCalculated;
+
+  }, [input, isKeyPressed, isCalculated]);
 
   useEffect(() => {
     document.addEventListener('keydown', (e) => onKeyDown(e));
-    document.addEventListener('keyup', (e) => onKeyUp(e));
+    document.addEventListener('keyup', () => onKeyUp());
+    return () => {
+      document.removeEventListener('keydown', (e) => onKeyDown(e));
+      document.removeEventListener('keyup', () => onKeyUp());
+    };
   }, []);
 
   return (

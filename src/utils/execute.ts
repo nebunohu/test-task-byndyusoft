@@ -27,8 +27,8 @@ export const execute = (postfixStr: Array<string>) => {
         temp = Math.sqrt(second);
         break; 
       case operators.percent.value:
-        if ( postfixStr[index+1] === operators.plus.value ) temp = first * second / 100;
-        if ( postfixStr[index+1] === operators.multiplication.value ) temp = second / 100;
+        if ( postfixStr[index+1] === operators.plus.value || postfixStr[index+1] === operators.minus.value ) temp = first * second / 100;
+        if ( postfixStr[index+1] === operators.multiplication.value || postfixStr[index+1] === operators.division.value ) temp = second / 100;
         break; 
       }
       
