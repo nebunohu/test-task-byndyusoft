@@ -16,29 +16,36 @@ import { execute } from '../../utils/execute';
 import { operators } from '../../consts';
 import { addTokenToInput } from '../../utils/add-token-to-input';
 
+const checkMultiplication = (token: string | null): string => {
+  if (token === operators.multiplication.output) {
+    token = operators.multiplication.token;
+  } 
+  return token ? token : '';
+};
+
 const Keyboard: FC = () => {
   const 
     [isKeyPressed, setisKeyPressed] = useState(false),
     keys = [
       "C", 
-      operators.square.value, 
-      operators.percent.value, 
-      operators.division.value, 
+      operators.square.output, 
+      operators.percent.output, 
+      operators.division.output, 
       "7", 
       "8", 
       "9", 
-      operators.multiplication.value, 
+      operators.multiplication.output, 
       "4", 
       "5", 
       "6", 
-      operators.minus.value, 
+      operators.minus.output, 
       "1", 
       "2", 
       "3", 
-      operators.plus.value, 
+      operators.plus.output, 
       "00", 
       "0", 
-      operators.comma.value, 
+      operators.comma.output, 
       "="
     ],
     { input, isCalculated } = useSelector(store => store.calc),
@@ -56,13 +63,13 @@ const Keyboard: FC = () => {
 
   const onButtonClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as Element;
-    const token = target.textContent as string;
+    const token = checkMultiplication(target.textContent);
 
     switch (token) {
     case "C":
       dispatch(clearCalc());
       break;
-    case operators.square.value:
+    case operators.square.output:
       if ( !input ) dispatch(updateInput(`${token}(0)`));
       else dispatch(updateInput(`${token}(${input})`));
       break;
@@ -107,10 +114,9 @@ const Keyboard: FC = () => {
           dispatch(updateInput(addTokenToInput(e.key, input, isCalculatedRef.current)));
           break;
         default:
-        }
-
-        if ( e.shiftKey && e.key === '%' ) {
-          dispatch(updateInput(addTokenToInput(e.key, input, isCalculatedRef.current)));
+          if ( e.shiftKey && e.key === '%' ) {
+            dispatch(updateInput(addTokenToInput(e.key, input, isCalculatedRef.current)));
+          }
         }
       }
     }

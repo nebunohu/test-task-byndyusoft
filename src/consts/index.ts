@@ -1,34 +1,47 @@
 export const operators = {
-  bracket: {
-    value: "(",
+  bracketOpen: {
+    output: "(",
+    token: "(",
+    priority: 0
+  },
+  bracketClose: {
+    output: ")",
+    token: ")",
     priority: 0
   },
   plus: {
-    value: "+",
+    output: "+",
+    token: "+",
     priority: 1
   },
   minus: {
-    value: "-",
+    output: "-",
+    token: "-",
     priority: 1
   },
   multiplication: {
-    value: "\u00D7",
+    output: "\u00D7",
+    token: "*",
     priority: 2,
   },
   division: {
-    value: "/",
+    output: "/",
+    token: "/",
     priority: 2
   },
   square: {
-    value: "\u221A",
+    output: "\u221A",
+    token: "undefined",
     priority: 0
   },
   comma: {
-    value: ",",
+    output: ",",
+    token: ",",
     priority: 10
   },
   percent: {
-    value: "%",
+    output: "%",
+    token: "%", 
     priority: 3
   }
 };

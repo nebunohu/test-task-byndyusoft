@@ -16,7 +16,7 @@
     "strict": true,
     "removeComments": true,
     "jsx": "react-jsx",
-    "types": ["body-parser"]
+    "types": ["body-parser", "jest"]
   },
   "include": ["src"]
 }

@@ -5,10 +5,10 @@
   "private": true,
   "homepage": "./",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve --open",
     "lint": "eslint --ext .ts,.tsx .",
+    "test": "jest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
+    "@types/jest": "^27.4.1",
     "@types/node-sass": "^4.11.2",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
@@ -38,9 +39,11 @@
     "eslint-plugin-react": "^7.29.4",
     "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.1",
     "sass-loader": "^12.6.0",
     "source-map-loader": "^3.0.1",
     "style-loader": "^3.3.1",
+    "ts-jest": "^27.1.4",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",
