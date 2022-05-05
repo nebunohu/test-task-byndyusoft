@@ -9,7 +9,7 @@ export const addTokenToInput = (token: string, input: string, isCalculated: bool
     isCurrentOperator = false;
   
   for (key in operators) {
-    if( operators[key].output === input[input.length-1] ) isLastOperator = true;
+    if( operators[key].output === input[input.length-1] && input[input.length-1] !== operators.bracketClose.output) isLastOperator = true;
     if( operators[key].token === token ) {
       isCurrentOperator = true;
       if (key === 'multiplication') token = operators.multiplication.output;

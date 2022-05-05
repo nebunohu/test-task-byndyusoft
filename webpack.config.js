@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  mode: "development",
+  mode: process.env.NODE_ENV === "development" ?  "development" : "production",
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist')

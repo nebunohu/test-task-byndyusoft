@@ -21,8 +21,8 @@ describe('Function', () => {
   it(`converts "${operators.square.output}(5)" to ["5",${operators.square.output}}]`, () => {
     expect(toPostfix(`${operators.square.output}(5)`)).toEqual(["5", operators.square.output]);
   });
-  it(`converts "${operators.square.output}(5)" to ["5",${operators.square.output}}]`, () => {
+  it(`converts "${operators.square.output}(5${operators.multiplication.output}2+4-1)${operators.multiplication.output}4-2" to ["5", "2", ${operators.multiplication.output},"4", "+", "1", "-", "√", "4", ${operators.multiplication.output}, "2", "-"]`, () => {
     expect(toPostfix(`${operators.square.output}(5${operators.multiplication.output}2+4-1)${operators.multiplication.output}4-2`))
-      .toEqual(["5", "2", operators.multiplication.output, "1", "-", "√", operators.multiplication.output, "4,", "2", "-"]);
+      .toEqual(["5", "2", operators.multiplication.output,"4", "+", "1", "-", "√", "4", operators.multiplication.output, "2", "-"]);
   });
 });

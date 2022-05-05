@@ -13,9 +13,15 @@ export const toPostfix = (input: string): Array<string> => {
       numAsStr += currentToken;
     } else if (currentToken === operators.comma.output) {
       numAsStr += '.';
-    } else if ( numAsStr !== '') {
-      postfixStr.push(numAsStr);
-      numAsStr = '';
+    }  else if ( currentToken === operators.square.output) {
+      stack.push(operators.square);
+    } else if (currentToken === operators.bracketOpen.output ) {
+      stack.push(operators.bracketOpen);
+    } else /**/ {
+      if ( numAsStr !== '') {
+        postfixStr.push(numAsStr);
+        numAsStr = '';
+      }
       const currentTokenWithPriority = Object.entries(operators).find(([, value]) => value.output === currentToken);
       if (currentTokenWithPriority) {
         if (stack.length) {
@@ -24,23 +30,33 @@ export const toPostfix = (input: string): Array<string> => {
               postfixStr.push(stack[stack.length-1].output);
               stack.pop();
             } 
+            stack.push(currentTokenWithPriority[1]);
           } else {
-            while (stack[stack.length-1].token !== operators.bracketOpen.token) {
-              postfixStr.push(stack[stack.length-1].output);
+            let i = stack.length-1;
+            while (stack.length && stack[i].token !== operators.bracketOpen.token) {
+              if (stack[i].token !== operators.bracketOpen.token) postfixStr.push(stack[i].output);
+              stack.pop();
+              i--;
+            }
+            if( stack[i].token === operators.bracketOpen.token ) {
+              stack.pop();
+              postfixStr.push(stack[i-1].output);
               stack.pop();
             }
-            stack.pop();
           }
-        } 
-        stack.push(currentTokenWithPriority[1]);
+        } else {
+          stack.push(currentTokenWithPriority[1]);
+        }
+
+        
       }  else return 'Error';
-    } else if ( currentToken === operators.square.output || currentToken === operators.bracketOpen.output ) {
-      stack.push(operators.square);
     }
   });
   if (numAsStr) postfixStr.push(numAsStr);
   if (stack.length) {
-    stack.reverse().forEach(el => postfixStr.push(el.output));
+    stack.reverse().forEach(el => {
+      if(el.output !== operators.bracketClose.output) postfixStr.push(el.output);
+    });
   }
   return postfixStr;
 };

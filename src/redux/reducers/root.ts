@@ -8,7 +8,7 @@ export type TCalcState = {
   isCalculated: boolean;
 };
 
-const calcInitialState: TCalcState = {
+export const calcInitialState: TCalcState = {
   result: '',
   input: '',
   isCalculated: false,
@@ -17,12 +17,7 @@ const calcInitialState: TCalcState = {
 export const calcReducer = (state = calcInitialState, action: TCalcActions): TCalcState => {
   switch (action.type) {
   case CLEAR_CALC: {
-    return {
-      ...state,
-      input: '',
-      result: '',
-      isCalculated: false,
-    };
+    return calcInitialState;
   }
   case UPDATE_INPUT: {
     return {

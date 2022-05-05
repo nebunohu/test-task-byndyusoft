@@ -25,7 +25,7 @@ const checkMultiplication = (token: string | null): string => {
 
 const Keyboard: FC = () => {
   const 
-    [isKeyPressed, setisKeyPressed] = useState(false),
+    [isKeyPressed, setIsKeyPressed] = useState(false),
     keys = [
       "C", 
       operators.square.output, 
@@ -85,7 +85,7 @@ const Keyboard: FC = () => {
   const onKeyDown = (e: KeyboardEvent) => {
     const input = calcInputRef.current;
     if ( typeof input === 'string') {
-      if (e.key !== 'Shift') setisKeyPressed(true);
+      if (e.key !== 'Shift') setIsKeyPressed(true);
       if (!isKeyPressedRef.current) {
         switch (e.key) {
         case "Enter":
@@ -123,7 +123,7 @@ const Keyboard: FC = () => {
   };
 
   const onKeyUp = () => {
-    setisKeyPressed(false);
+    setIsKeyPressed(false);
   };
 
   useEffect(() => {
