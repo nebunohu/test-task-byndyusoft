@@ -1,12 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      }
+    },
   },
   mode: process.env.NODE_ENV === "development" ?  "development" : "production",
   devServer: {
@@ -35,7 +49,8 @@ module.exports = {
       {
         test: /\.s[sc]ss$/i,
         use: [
-          { loader: "style-loader" },
+          //{ loader: "style-loader" },
+          { loader: MiniCssExtractPlugin.loader},
           { loader: "css-modules-typescript-loader",
             options: {
               mode: process.env.CI ? 'verify' : 'emit'
@@ -58,7 +73,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin( {
+      title: 'Caculator',
       template: path.resolve(__dirname, "./public/index.html")
     }),
+    new MiniCssExtractPlugin( {
+      filename: 'main.css' 
+    })
   ]
 };
