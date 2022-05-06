@@ -1,14 +1,15 @@
 {
-  "main.css": "auto/main.9a469e236efa86838894.css",
-  "main.js": "auto/main.4660d53c92ebb383d652.js",
-  "runtime.js": "auto/runtime.f4ce2b734fd727796425.js",
-  "vendors.js": "auto/vendors.f3a7e43f5b02ed0adb0d.js",
-  "Geometria.ttf": "auto/8f177d24d33171dfc518.ttf",
-  "Geometria.woff": "auto/b7f74b260291c82461d1.woff",
-  "favicon.ico": "auto/favicon.ico",
-  "index.html": "auto/index.html",
-  "main.css.map": "auto/main.9a469e236efa86838894.css.map",
-  "main.js.map": "auto/main.4660d53c92ebb383d652.js.map",
-  "runtime.js.map": "auto/runtime.f4ce2b734fd727796425.js.map",
-  "vendors.js.map": "auto/vendors.f3a7e43f5b02ed0adb0d.js.map"
+  "short_name": "Calculator",
+  "name": "Calculator made as test task for Byndyusoft",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

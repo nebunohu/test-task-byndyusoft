@@ -8,7 +8,7 @@
 
 html{background:linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%),#fff;font-family:"Geometria";color:#FFF}.app-modules__calcOverlay--UsPi_{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:flex;justify-content:center;align-items:center;height:876px;min-width:616px;background:rgba(255,255,255,0.2);border-radius:18px}@media screen and (max-width: 420px){.app-modules__calcOverlay--UsPi_{position:static;top:0;left:0;transform:translate(0, 0);height:100vh;min-height:0;width:100vw;min-width:0}}
 
-@font-face{font-family:"Geometria";src:local("Geometria"),url(b7f74b260291c82461d1.woff) format("woff"),url(8f177d24d33171dfc518.ttf) format("ttf")}*,*::before,*::after{box-sizing:border-box}ul[class],ol[class]{padding:0}body,h1,h2,h3,h4,p,ul[class],ol[class],li,figure,figcaption,blockquote,dl,dd{margin:0}body{min-height:100vh;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}ul[class],ol[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}input,button,textarea,select{font:inherit}
+@font-face{font-family:"Geometria";src:local("Geometria"),url(../../static/media/b7f74b260291c82461d1.woff) format("woff"),url(../../static/media/8f177d24d33171dfc518.ttf) format("ttf")}*,*::before,*::after{box-sizing:border-box}ul[class],ol[class]{padding:0}body,h1,h2,h3,h4,p,ul[class],ol[class],li,figure,figcaption,blockquote,dl,dd{margin:0}body{min-height:100vh;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}ul[class],ol[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}input,button,textarea,select{font:inherit}
 
 
-/*# sourceMappingURL=main.9a469e236efa86838894.css.map*/
+/*# sourceMappingURL=main.f4e811795c745d7752ee.css.map*/
