@@ -5,6 +5,8 @@
   "vendors.js": "auto/static/js/vendors.f3a7e43f5b02ed0adb0d.js",
   "static/media/Geometria.ttf": "auto/static/media/8f177d24d33171dfc518.ttf",
   "static/media/Geometria.woff": "auto/static/media/b7f74b260291c82461d1.woff",
+  "logo512.png": "auto/logo512.png",
+  "logo192.png": "auto/logo192.png",
   "favicon.ico": "auto/favicon.ico",
   "index.html": "auto/index.html",
   "manifest.json": "auto/manifest.json",
