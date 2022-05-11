@@ -1,4 +1,4 @@
-import { FC, lazy } from "react";
+import { FC } from "react";
 import { useSelector } from "../../hooks";
 import Keyboard from "../keyboard/keyboard";
 import OutputSection from "../output-section/output-section";

@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -12,10 +12,10 @@ const composedEnhancers = process.env.NODE_ENV === 'production' ? compose(applyM
 export const store = createStore(rootReducer, composedEnhancers);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>, 
+  </StrictMode>, 
   document.getElementById('root')
 );
