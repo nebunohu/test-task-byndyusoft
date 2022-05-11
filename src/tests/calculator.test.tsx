@@ -20,7 +20,21 @@ test('should output "1+1" to the input section of the screen and "2" to the resu
   fireEvent.click(getByText('1'));
   fireEvent.click(getByText('+'));
   fireEvent.click(getByText('1'));
+  expect(screen.getByTestId('input')).toHaveTextContent('1+1');
   fireEvent.click(getByText('='));
   expect(screen.getByTestId('input')).toHaveTextContent('1+1');
   expect(screen.getByTestId('result')).toHaveTextContent('2');
+});
+
+test('should clear input section of the screen ', () => {
+  const {getByText} = render(<App />);
+  fireEvent.click(getByText('1'));
+  fireEvent.click(getByText('+'));
+  fireEvent.click(getByText('1'));
+  expect(screen.getByTestId('input')).toHaveTextContent('1+1');
+  fireEvent.click(getByText('='));
+  expect(screen.getByTestId('result')).toHaveTextContent('2');
+  fireEvent.click(getByText('C'));
+  expect(screen.getByTestId('input')).toHaveTextContent('');
+  expect(screen.getByTestId('result')).toHaveTextContent('');
 });
