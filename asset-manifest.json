@@ -1,8 +1,8 @@
 {
   "main.css": "auto/static/css/main.f4e811795c745d7752ee.css",
-  "main.js": "auto/static/js/main.4660d53c92ebb383d652.js",
-  "runtime.js": "auto/static/js/runtime.f4ce2b734fd727796425.js",
-  "vendors.js": "auto/static/js/vendors.f3a7e43f5b02ed0adb0d.js",
+  "main.js": "auto/static/js/main.441c1936127809020d9c.js",
+  "runtime.js": "auto/static/js/runtime.9aa68f06caf8a43469b6.js",
+  "vendors.js": "auto/static/js/vendors.6cac6603fd4dae2e4ac2.js",
   "static/media/Geometria.ttf": "auto/static/media/8f177d24d33171dfc518.ttf",
   "static/media/Geometria.woff": "auto/static/media/b7f74b260291c82461d1.woff",
   "logo512.png": "auto/logo512.png",
@@ -11,7 +11,7 @@
   "index.html": "auto/index.html",
   "manifest.json": "auto/manifest.json",
   "main.css.map": "auto/static/css/main.f4e811795c745d7752ee.css.map",
-  "main.js.map": "auto/static/js/main.4660d53c92ebb383d652.js.map",
-  "runtime.js.map": "auto/static/js/runtime.f4ce2b734fd727796425.js.map",
-  "vendors.js.map": "auto/static/js/vendors.f3a7e43f5b02ed0adb0d.js.map"
+  "main.js.map": "auto/static/js/main.441c1936127809020d9c.js.map",
+  "runtime.js.map": "auto/static/js/runtime.9aa68f06caf8a43469b6.js.map",
+  "vendors.js.map": "auto/static/js/vendors.6cac6603fd4dae2e4ac2.js.map"
 }
