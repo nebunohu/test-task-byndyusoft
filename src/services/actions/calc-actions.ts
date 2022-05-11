@@ -1,4 +1,4 @@
-import { TCalcState } from "../reducers/root";
+import { TCalcState } from "../reducers/calc-reducer";
 
 export const SAVE_FORM: "SAVE_FORM" = "SAVE_FORM";
 export const CLEAR_CALC: "CLEAR_CALC" = "CLEAR_CALC";

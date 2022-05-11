@@ -1,10 +1,9 @@
-import { TApplicationActions } from './../types/index';
-import { updateInput, updateResult, clearCalc } from './../redux/actions/calc-actions';
-import { calcReducer, calcInitialState } from './../redux/reducers/root';
+import { updateInput, updateResult, clearCalc, TCalcActions } from './../services/actions/calc-actions';
+import { calcReducer, calcInitialState } from './../services/reducers/calc-reducer';
 
 describe('Root reducer', () => {
   it('returns initial state', () => {
-    expect(calcReducer(undefined, {} as TApplicationActions)).toEqual(calcInitialState);
+    expect(calcReducer(undefined, {} as TCalcActions)).toEqual(calcInitialState);
   });
   it('updates input', () => {
     expect(calcReducer(calcInitialState, updateInput('1+1'))).toEqual({...calcInitialState, input: '1+1'});

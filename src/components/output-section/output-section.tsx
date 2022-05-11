@@ -1,19 +1,16 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
+import CalculatorContext from "../calculator/calculator-context";
 
 // Styles
 import styles from './output-section.module.scss';
 
-type TOutputSectionProps = {
-  inputValue?: string;
-  result?: string;
-  
-};
+const OutputSection: FC = () => {
+  const { input, result } = useContext(CalculatorContext);
 
-const OutputSection: FC<TOutputSectionProps> = ({ inputValue, result }) => {
   return (
     <div className={`${styles.outputSection}`}>
-      <div className={`${styles.output}`}>{inputValue}</div>
-      <div className={`${styles.result}`}>{result}</div>
+      <div className={`${styles.output}`} data-testid="input">{input}</div>
+      <div className={`${styles.result}`} data-testid="result">{result}</div>
     </div>
   );
 };

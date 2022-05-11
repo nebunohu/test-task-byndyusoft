@@ -1,21 +1,22 @@
-import { FC } from "react";
-import { useSelector } from "../../hooks";
+import { FC, useReducer } from "react";
 import Keyboard from "../keyboard/keyboard";
 import OutputSection from "../output-section/output-section";
+import CalculatorContext, {calcInitialState} from './calculator-context';
+import { calcReducer } from "../../services/reducers/calc-reducer";
 
 // Styles
 import styles from './calculator.module.scss';
 
 const Calculator: FC = () => {
-  const { result, input } = useSelector(store => store.calc);
-  // const Keyboard = lazy(() => import('../keyboard/keyboard'));
-  // const OutputSection = lazy(() => import('../output-section/output-section'));
+  const [calcState, dispatch] = useReducer(calcReducer, calcInitialState);
   
   return (
-    <div className={`${styles.wrapper}`}>
-      <OutputSection inputValue={input} result={result} />
-      <Keyboard />
-    </div>
+    <CalculatorContext.Provider value={calcState}>
+      <div className={`${styles.wrapper}`}>
+        <OutputSection />
+        <Keyboard dispatch={dispatch} />
+      </div>
+    </CalculatorContext.Provider>
   );
 };
 

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, FC, MouseEvent } from 'react';
-import { useDispatch, useSelector } from '../../hooks';
-import { clearCalc, updateInput, updateResult } from '../../redux/actions/calc-actions';
+import { useEffect, useRef, useState, FC, MouseEvent, useContext } from 'react';
+import { clearCalc, updateInput, updateResult } from '../../services/actions/calc-actions';
+import { TCalcActions } from '../../services/actions/calc-actions';
 
 // Components
 import KeyboardButton from '../keyboard-button/keyboard-button';
@@ -15,6 +15,7 @@ import { execute } from '../../utils/execute';
 // Consts
 import { operators } from '../../consts';
 import { addTokenToInput } from '../../utils/add-token-to-input';
+import CalculatorContext from '../calculator/calculator-context';
 
 const checkMultiplication = (token: string | null): string => {
   if (token === operators.multiplication.output) {
@@ -23,8 +24,13 @@ const checkMultiplication = (token: string | null): string => {
   return token ? token : '';
 };
 
-const Keyboard: FC = () => {
+type TKeyboardProps = {
+  dispatch: React.Dispatch<TCalcActions>;
+}
+
+const Keyboard: FC<TKeyboardProps> = ({ dispatch }) => {
   const 
+    {input, isCalculated} = useContext(CalculatorContext),
     [isKeyPressed, setIsKeyPressed] = useState(false),
     keys = [
       "C", 
@@ -48,8 +54,6 @@ const Keyboard: FC = () => {
       operators.comma.output, 
       "="
     ],
-    { input, isCalculated } = useSelector(store => store.calc),
-    dispatch = useDispatch(),
     calcInputRef = useRef(input),
     isKeyPressedRef = useRef(isKeyPressed),
     isCalculatedRef = useRef(isCalculated);

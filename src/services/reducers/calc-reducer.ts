@@ -1,6 +1,5 @@
-import { UPDATE_INPUT, CLEAR_CALC, UPDATE_RESULT } from './../actions/calc-actions';
+import { UPDATE_INPUT, CLEAR_CALC, UPDATE_RESULT } from '../actions/calc-actions';
 import { TCalcActions } from '../actions/calc-actions';
-import { combineReducers } from "redux";
 
 export type TCalcState = {
   result: string;
@@ -35,7 +34,3 @@ export const calcReducer = (state = calcInitialState, action: TCalcActions): TCa
   default: return state;
   }
 };
-
-export const rootReducer = combineReducers({
-  calc: calcReducer
-});
